@@ -257,10 +257,13 @@ a:hover {
     word-spacing: 0;
 }
 .contatos-textos {
-    margin-bottom: 410px;
+    /* margin-bottom: 200px; */
+    margin-top: 50px;
     font-weight: 100;
     font-size: 25px;
     text-align:center;
+    margin-bottom: 4rem;
+    justify-content: space-around;
 }
 
 .contatos-textos a {
