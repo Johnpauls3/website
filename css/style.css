@@ -1,309 +1,209 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-* {
-    margin:0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-}
-
-header {
-    background-color:white;
-}
-
 body {
-    font-size: 100%;
-    background: linear-gradient(68.15deg, #1fa9b3 16.62%, #8E5D52 85.61%);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
 }
-/* menu hambuguer */
+
+.header-container {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Corrigido aqui */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
 .checkbox-container {
-    display:flex;
-    justify-content: center;
+    display: flex;
     align-items: center;
 }
 
 .checkbox {
-    height: 100px;
-    width: 100px;
-    position: absolute;
-    right: 0;
-    top:0;
-    display: flex;
-    justify-content: center;
-    cursor:pointer;
-    z-index:9999;
-    transition: 400ms ease-in-out 0s;
+    cursor: pointer;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    position: relative;
 }
 
-.checkbox .trace {
-    width: 50px;
-    height: 2px;
-    background-color: black;
-    position: absolute;
-    border-radius: 4px;
-    transition: 0.5s ease-in-out;
+.trace {
+    background-color: #fff;
+    height: 4px;
+    width: 100%;
+    margin: 5px 0;
+    transition: all 0.3s ease;
 }
 
-.checkbox .trace:nth-child(1) {
-    top:26px;
-    transform: rotate(0);
+#toggle:checked + .checkbox .trace:nth-child(1) {
+    transform: rotate(45deg);
+    top: 10px;
 }
 
-.checkbox .trace:nth-child(2) {
-    top:40px;
-    transform:rotate(0);
+#toggle:checked + .checkbox .trace:nth-child(2) {
+    opacity: 0;
 }
 
-.checkbox .trace:nth-child(3) {
-    top:60px;
-    transform: rotate(0);
+#toggle:checked + .checkbox .trace:nth-child(3) {
+    transform: rotate(-45deg);
+    top: -10px;
 }
 
 #toggle {
     display: none;
 }
 
-/* menu */
-
-.menu {
-    position: absolute;
-    top:28px;
-    right:30px;
-    background-color: transparent;
-    height: 4px;
-    width: 10px;
-    border-radius: 50%;
-    box-shadow: 0px 0px 0px 0px white;
-    z-index:-1;
-    transition: 400ms ease-in-out 0s; 
-}
-
 .menu-items {
-    position: fixed;
-    top:0;
-    left:0;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index:2;
-    opacity: 0;
-    visibility: hidden;
-    transition: 400ms ease-in-out 0s;
-}
-.menu-items ul {
-    list-style-type: none;
-}
-
-.menu-items ul li a{
-    margin: 10px 0;
-    color:black;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    font-size:40px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.menu-items ul li a:hover {
-    color:red;
-}
-
-/* animação do menu */
-
-#toggle:checked + .checkbox .trace:nth-child(1) {
-    transform:rotate(45deg);
-    top:47px;
-}
-
-#toggle:checked + .checkbox .trace:nth-child(2) {
-    transform:translate(-100px);
-    width:30px;
-    visibility: hidden;
-    opacity:0;
-}
-
-#toggle:checked + .checkbox .trace:nth-child(3) {
-    transform:rotate(-45deg);
-    top: 48px;
-}
-
-#toggle:checked + .checkbox {
-    background-color:#8E5D52;
-}
-
-
-#toggle:checked ~ .menu {
-    box-shadow: 0px 0px 0px 100vmax #8E5D52;
-    z-index: 1;
+    display: none;
 }
 
 #toggle:checked ~ .menu-items {
-    visibility: visible;
-    opacity: 1;
+    display: block;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #333;
+    width: 100%;
+    z-index: 1;
 }
 
+.menu-items ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-items ul li {
+    border-bottom: 1px solid #444;
+}
+
+.menu-items ul li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 15px;
+    text-align: center;
+}
+
+.menu-items ul li a:hover {
+    background-color: #555;
+}
+
+.container-imagem {
+    max-width: 200px;
+    display: block;
+    margin: 20px auto;
+}
 
 .conteudo {
-    margin-bottom: 48px;
-    border-top: 0.4px solid whitesmoke;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 .conteudo-principal {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding:24px;
-    justify-content: space-around;
+    text-align: center;
+    background-color: #fff;
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.conteudo-principal-escrito {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-}
 .conteudo-principal-escrito-titulo {
-    font-family:Arial;
-    font-weight: 600;
-    font-size: 30px;
-    color:white;
-    margin-left: 130px;
+    font-size: 2.5em;
+    margin-bottom: 20px;
 }
 
 .conteudo-principal-escrito-subtitulo {
-    font-family:Arial;
-    font-weight: 200;
-    font-size: 20px;
-    color:white;
-    text-align: justify;
-    margin-left: 130px;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #666;
 }
 
 .conteudo-principal-escrito-botao {
-    background-color: #8E5D52;
-    color:whitesmoke;
-    width: 180px;
-    height: 60px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
     border: none;
-    box-shadow: 4px 5px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 15px;
-    font-family: 'Poppins';
-    font-weight: 600;
-    font-size: 800;
-    color:black;
-    margin-left: 130px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
 }
 
-.conteudo-principal-escrito-botao a{
-    color:aliceblue;
+.conteudo-principal-escrito-botao a {
+    color: #fff;
+    text-decoration: none;
 }
+
 .conteudo-principal-escrito-botao:hover {
-    background-color:#035E65;
+    background-color: #555;
 }
-
 
 .conteudo-principal-imagem {
-    height: 600px;
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
 }
 
 .conteudo-secundario {
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    gap:24px;
-    margin-top:48px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .conteudo-secundario-titulo {
-    border-top: 0.4px solid white;
-    padding-top: 10px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 400;
-    font-size: 24px;
-    color:aliceblue;
-    margin-bottom: 16px;
+    font-size: 1.8em;
+    margin-bottom: 10px;
 }
 
 .conteudo-secundario-paragrafo {
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 400;
-    font-size: 18px;
-    color: white;
-    text-align: center;
+    font-size: 1em;
+    color: #666;
+}
+
+.conteudo-secundario-imagem {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 10px;
 }
 
 .rodape {
-    padding: 32px;
-    border-top: 0.4px solid white;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
 }
 
 .rodape-imagem {
-    height: 48px;
+    max-width: 100px;
     display: block;
-    margin: 0 auto;
+    margin: 0 auto 10px;
 }
-a:hover {
-    color: #b13030 !important;
+
+.rodape-texto {
+    margin: 0;
+}
+
+.rodape-texto a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.rodape-texto a:hover {
+    text-decoration: underline;
 }
 .contatos {
-    padding: 4px;
-    float:none;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: 50px;
-    word-spacing: 0;
-}
-.contatos-textos {
-    /* margin-bottom: 200px; */
-    margin-top: 50px;
-    font-weight: 100;
-    font-size: 25px;
-    text-align:center;
-    margin-bottom: 4rem;
-    justify-content: space-around;
-}
-
-.contatos-textos a {
-    color:whitesmoke;
-}
-
-.contatos-todos {
     text-align: center;
-    color: whitesmoke;
-    font-size:30px;
-    margin-bottom: 40px;
-}
-
-.rodape {
-    background-color: white;
-}
-.rodape-texto {
-    text-align: center;
-    color: black;
-}
-.rodape-texto a {
-    text-align: center;
-    color:black;
-}
-
-.rodape-texto:hover a {
-    color:red;
-}
-
-/* sobre mim */
-
-.sobre-secundario {
-    font-size:20px;
-    text-align: justify;
-    margin: 0;
-    margin-left: 100px;
-    margin-right: 100px;
-    color:whitesmoke;
-}
-.sobre-secundario-titulo {
-    text-align: center;
-    margin-bottom: 30px;
 }
